@@ -5555,7 +5555,9 @@ let ninji: Sprite = null
 let ninjiHitbox: Sprite = null
 let shuriken: Sprite = null
 let gameRunning = false
-animateDevText()
+timer.after(500, function () {
+    animateDevText()
+})
 game.onUpdate(function () {
     for (let value6 of sprites.allOfKind(SpriteKind.Hitbox)) {
         if (value6.y >= 148) {
@@ -5604,169 +5606,175 @@ forever(function () {
             mySprite6.vy = -240
             mySprite6.vx = -80
             if (mySprite6.isHittingTile(CollisionDirection.Bottom)) {
-                timer.after(500, function () {
-                    mySprite6.vy = 0
+                if (!(gameOverCheck)) {
                     timer.after(500, function () {
-                        if (!(gameOverCheck)) {
-                            projectile5 = sprites.createProjectileFromSprite(img`
-                                . . . d d . . . 
-                                . . d c c d . . 
-                                . b c c c c b . 
-                                b c c . . c c b 
-                                c . . . . . . c 
-                                . . . . . . . . 
-                                . . . . . . . . 
-                                . . . . . . . . 
-                                `, mySprite6, 0, 0)
-                            projectile5.setKind(SpriteKind.BossProjectile)
-                            projectile5.setFlag(SpriteFlag.DestroyOnWall, false)
-                            projectile5.setFlag(SpriteFlag.GhostThroughWalls, true)
-                            if (characterAnimations.matchesRule(mySprite6, characterAnimations.rule(Predicate.FacingLeft))) {
-                                projectile5.ax = 120
-                                projectile5.vx = -75
+                        mySprite6.vy = 0
+                        timer.after(500, function () {
+                            if (!(gameOverCheck)) {
+                                projectile5 = sprites.createProjectileFromSprite(img`
+                                    . . . d d . . . 
+                                    . . d c c d . . 
+                                    . b c c c c b . 
+                                    b c c . . c c b 
+                                    c . . . . . . c 
+                                    . . . . . . . . 
+                                    . . . . . . . . 
+                                    . . . . . . . . 
+                                    `, mySprite6, 0, 0)
+                                projectile5.setKind(SpriteKind.BossProjectile)
+                                projectile5.setFlag(SpriteFlag.DestroyOnWall, false)
+                                projectile5.setFlag(SpriteFlag.GhostThroughWalls, true)
+                                if (characterAnimations.matchesRule(mySprite6, characterAnimations.rule(Predicate.FacingLeft))) {
+                                    if (!(gameOverCheck)) {
+                                        projectile5.ax = 120
+                                        projectile5.vx = -75
+                                        animation.runImageAnimation(
+                                        mySprite6,
+                                        [img`
+                                            . . . . . . . . . . . . 
+                                            . . . . . . . . . . . . 
+                                            . 3 3 f f f . . . . . . 
+                                            . 3 f e e c f . . . . . 
+                                            . f 2 2 2 f c f f . . . 
+                                            . f f 1 f 1 2 f 2 2 f . 
+                                            . f e e e c c f f f f . 
+                                            . . f e c c f f f . . . 
+                                            . . . f f f c f c d d . 
+                                            . . . f f f e c c d d . 
+                                            . . f e e f f f 4 4 f . 
+                                            . f e e . . . . f f . . 
+                                            `,img`
+                                            . . . . . . . . . . . . 
+                                            . . . f f f . . . . . . 
+                                            1 . f e e c f . . . . . 
+                                            1 f 2 2 2 f c f f . . . 
+                                            1 f f 1 f 1 2 f 2 2 f . 
+                                            1 f e e e c c f f f . . 
+                                            1 1 f e c c f f f . . . 
+                                            1 1 . f f f c f c d d . 
+                                            . 1 1 f f e e c c d d . 
+                                            . . . . . f f f f . . . 
+                                            . . . . f e f 4 f . . . 
+                                            . . . f e f 4 4 f . . . 
+                                            `,img`
+                                            . . . f f f . . . . . . 
+                                            . . f e e c f . f . . . 
+                                            . f 2 2 2 f c f f 2 f . 
+                                            . f f 1 f 1 2 f 2 f . . 
+                                            . f e e e c c f f . . . 
+                                            . . f e c c f f f f . . 
+                                            . . . f f f c f c d d . 
+                                            . . 3 f f e e c c d d . 
+                                            . . f 4 f f f f f . . . 
+                                            . . f 4 4 f f f f f . . 
+                                            . . . f f . . f e e f . 
+                                            . . . . . . f e e . . . 
+                                            `],
+                                        100,
+                                        false
+                                        )
+                                    }
+                                } else {
+                                    if (!(gameOverCheck)) {
+                                        projectile5.ax = -120
+                                        projectile5.vx = 75
+                                        animation.runImageAnimation(
+                                        mySprite6,
+                                        [img`
+                                            . . . . . . . . . . . . 
+                                            . . . . . . . . . . . . 
+                                            . . . . . . f f f 3 3 . 
+                                            . . . . . f c e e f 3 . 
+                                            . . . f f c f 2 2 2 f . 
+                                            . f 2 2 f 2 1 f 1 f f . 
+                                            . f f f f c c e e e f . 
+                                            . . . f f f c c e f . . 
+                                            . d d c f c f f f . . . 
+                                            . d d c c e f f f . . . 
+                                            . f 4 4 f f f e e f . . 
+                                            . . f f . . . . e e f . 
+                                            `,img`
+                                            . . . . . . . . . . . . 
+                                            . . . . . . f f f . . . 
+                                            . . . . . f c e e f . 1 
+                                            . . . f f c f 2 2 2 f 1 
+                                            . f 2 2 f 2 1 f 1 f f 1 
+                                            . . f f f c c e e e f 1 
+                                            . . . f f f c c e f 1 1 
+                                            . d d c f c f f f . 1 1 
+                                            . d d c c e e f f 1 1 . 
+                                            . . . f f f f . . . . . 
+                                            . . . f 4 f e f . . . . 
+                                            . . . f 4 4 f e f . . . 
+                                            `,img`
+                                            . . . . . . f f f . . . 
+                                            . . . f . f c e e f . . 
+                                            . f 2 f f c f 2 2 2 f . 
+                                            . . f 2 f 2 1 f 1 f f . 
+                                            . . . f f c c e e e f . 
+                                            . . f f f f c c e f . . 
+                                            . d d c f c f f f . . . 
+                                            . d d c c e e f f 3 . . 
+                                            . . . f f f f f 4 f . . 
+                                            . . f f f f f 4 4 f . . 
+                                            . f e e f . . f f . . . 
+                                            . . . e e f . . . . . . 
+                                            `],
+                                        100,
+                                        false
+                                        )
+                                    }
+                                }
                                 animation.runImageAnimation(
-                                mySprite6,
+                                projectile5,
                                 [img`
-                                    . . . . . . . . . . . . 
-                                    . . . . . . . . . . . . 
-                                    . 3 3 f f f . . . . . . 
-                                    . 3 f e e c f . . . . . 
-                                    . f 2 2 2 f c f f . . . 
-                                    . f f 1 f 1 2 f 2 2 f . 
-                                    . f e e e c c f f f f . 
-                                    . . f e c c f f f . . . 
-                                    . . . f f f c f c d d . 
-                                    . . . f f f e c c d d . 
-                                    . . f e e f f f 4 4 f . 
-                                    . f e e . . . . f f . . 
+                                    . . . d d . . . 
+                                    . . d c c d . . 
+                                    . b c c c c b . 
+                                    b c c . . c c b 
+                                    c . . . . . . c 
+                                    . . . . . . . . 
+                                    . . . . . . . . 
+                                    . . . . . . . . 
                                     `,img`
-                                    . . . . . . . . . . . . 
-                                    . . . f f f . . . . . . 
-                                    1 . f e e c f . . . . . 
-                                    1 f 2 2 2 f c f f . . . 
-                                    1 f f 1 f 1 2 f 2 2 f . 
-                                    1 f e e e c c f f f . . 
-                                    1 1 f e c c f f f . . . 
-                                    1 1 . f f f c f c d d . 
-                                    . 1 1 f f e e c c d d . 
-                                    . . . . . f f f f . . . 
-                                    . . . . f e f 4 f . . . 
-                                    . . . f e f 4 4 f . . . 
+                                    . . . b c . . . 
+                                    . . b c . . . . 
+                                    . d c c . . . . 
+                                    d c c . . . . . 
+                                    d c c . . . . . 
+                                    . d c c . . . . 
+                                    . . b c . . . . 
+                                    . . . b c . . . 
                                     `,img`
-                                    . . . f f f . . . . . . 
-                                    . . f e e c f . f . . . 
-                                    . f 2 2 2 f c f f 2 f . 
-                                    . f f 1 f 1 2 f 2 f . . 
-                                    . f e e e c c f f . . . 
-                                    . . f e c c f f f f . . 
-                                    . . . f f f c f c d d . 
-                                    . . 3 f f e e c c d d . 
-                                    . . f 4 f f f f f . . . 
-                                    . . f 4 4 f f f f f . . 
-                                    . . . f f . . f e e f . 
-                                    . . . . . . f e e . . . 
+                                    . . . . . . . . 
+                                    . . . . . . . . 
+                                    . . . . . . . . 
+                                    c . . . . . . c 
+                                    b c c . . c c b 
+                                    . b c c c c b . 
+                                    . . d c c d . . 
+                                    . . . d d . . . 
+                                    `,img`
+                                    . . . c b . . . 
+                                    . . . . c b . . 
+                                    . . . . c c d . 
+                                    . . . . . c c d 
+                                    . . . . . c c d 
+                                    . . . . c c d . 
+                                    . . . . c b . . 
+                                    . . . c b . . . 
                                     `],
                                 100,
-                                false
-                                )
-                            } else {
-                                projectile5.ax = -120
-                                projectile5.vx = 75
-                                animation.runImageAnimation(
-                                mySprite6,
-                                [img`
-                                    . . . . . . . . . . . . 
-                                    . . . . . . . . . . . . 
-                                    . . . . . . f f f 3 3 . 
-                                    . . . . . f c e e f 3 . 
-                                    . . . f f c f 2 2 2 f . 
-                                    . f 2 2 f 2 1 f 1 f f . 
-                                    . f f f f c c e e e f . 
-                                    . . . f f f c c e f . . 
-                                    . d d c f c f f f . . . 
-                                    . d d c c e f f f . . . 
-                                    . f 4 4 f f f e e f . . 
-                                    . . f f . . . . e e f . 
-                                    `,img`
-                                    . . . . . . . . . . . . 
-                                    . . . . . . f f f . . . 
-                                    . . . . . f c e e f . 1 
-                                    . . . f f c f 2 2 2 f 1 
-                                    . f 2 2 f 2 1 f 1 f f 1 
-                                    . . f f f c c e e e f 1 
-                                    . . . f f f c c e f 1 1 
-                                    . d d c f c f f f . 1 1 
-                                    . d d c c e e f f 1 1 . 
-                                    . . . f f f f . . . . . 
-                                    . . . f 4 f e f . . . . 
-                                    . . . f 4 4 f e f . . . 
-                                    `,img`
-                                    . . . . . . f f f . . . 
-                                    . . . f . f c e e f . . 
-                                    . f 2 f f c f 2 2 2 f . 
-                                    . . f 2 f 2 1 f 1 f f . 
-                                    . . . f f c c e e e f . 
-                                    . . f f f f c c e f . . 
-                                    . d d c f c f f f . . . 
-                                    . d d c c e e f f 3 . . 
-                                    . . . f f f f f 4 f . . 
-                                    . . f f f f f 4 4 f . . 
-                                    . f e e f . . f f . . . 
-                                    . . . e e f . . . . . . 
-                                    `],
-                                100,
-                                false
+                                true
                                 )
                             }
-                            animation.runImageAnimation(
-                            projectile5,
-                            [img`
-                                . . . d d . . . 
-                                . . d c c d . . 
-                                . b c c c c b . 
-                                b c c . . c c b 
-                                c . . . . . . c 
-                                . . . . . . . . 
-                                . . . . . . . . 
-                                . . . . . . . . 
-                                `,img`
-                                . . . b c . . . 
-                                . . b c . . . . 
-                                . d c c . . . . 
-                                d c c . . . . . 
-                                d c c . . . . . 
-                                . d c c . . . . 
-                                . . b c . . . . 
-                                . . . b c . . . 
-                                `,img`
-                                . . . . . . . . 
-                                . . . . . . . . 
-                                . . . . . . . . 
-                                c . . . . . . c 
-                                b c c . . c c b 
-                                . b c c c c b . 
-                                . . d c c d . . 
-                                . . . d d . . . 
-                                `,img`
-                                . . . c b . . . 
-                                . . . . c b . . 
-                                . . . . c c d . 
-                                . . . . . c c d 
-                                . . . . . c c d 
-                                . . . . c c d . 
-                                . . . . c b . . 
-                                . . . c b . . . 
-                                `],
-                            100,
-                            true
-                            )
-                        }
+                        })
                     })
-                })
-                for (let index = 0; index < 1200; index++) {
-                    timer.after(1, function () {
-                        bossRunCount = 0
-                    })
+                    for (let index = 0; index < 1200; index++) {
+                        timer.after(1, function () {
+                            bossRunCount = 0
+                        })
+                    }
                 }
             }
         }
