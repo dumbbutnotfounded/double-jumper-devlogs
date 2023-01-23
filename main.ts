@@ -60,6 +60,8 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         100,
         true
         )
+        soundeffect5 = soundEffects.createSound(soundEffects.waveNumber(WaveType.WhiteNoise), 100, 1000, 440, 140, 0)
+        soundeffect5.play()
         if (characterAnimations.matchesRule(ninji, characterAnimations.rule(Predicate.FacingLeft))) {
             shuriken.vx = -100
             if (controller.up.isPressed()) {
@@ -203,6 +205,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             if (numJumps < maxJumps) {
                 numJumps += 1
                 ninjiHitbox.vy = -200
+                if (numJumps == 1) {
+                    music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 400, 600, 160, 0, 100, SoundExpressionEffect.Vibrato, InterpolationCurve.Curve), SoundExpressionPlayMode.InBackground)
+                }
                 if (numJumps > 1) {
                     scene.cameraShake(2, 500)
                     doubleJumpFx = sprites.create(img`
@@ -352,6 +357,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     timer.after(540, function () {
                         doubleJumpFx.destroy()
                     })
+                    soundeffect4 = soundEffects.createSound(soundEffects.waveNumber(WaveType.WhiteNoise), 200, 440, 440, 160, 0)
+                    soundeffect4.play()
                 }
             }
         }
@@ -7828,6 +7835,7 @@ let ninjiGameOver: Sprite = null
 let continueText: Sprite = null
 let allLivesLost = false
 let dialoguePlayed = false
+let soundeffect4: SoundBuffer = null
 let doubleJumpFx: Sprite = null
 let numJumps = 0
 let movement = false
@@ -7835,6 +7843,7 @@ let level = 0
 let achievementText: Sprite = null
 let maxJumps = 0
 let ninji: Sprite = null
+let soundeffect5: SoundBuffer = null
 let ninjiHitbox: Sprite = null
 let shuriken: Sprite = null
 let gameRunning = false
@@ -8355,5 +8364,10 @@ forever(function () {
 forever(function () {
     if (showBossRunCount) {
         info.setScore(bossRunCount)
+    }
+})
+forever(function () {
+    if (movement) {
+        info.setScore(ninjiHitbox.vy)
     }
 })
