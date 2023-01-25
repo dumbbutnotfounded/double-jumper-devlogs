@@ -5203,6 +5203,7 @@ info.onLifeZero(function () {
         sprites.destroyAllSpritesOfKind(SpriteKind.Red)
         sprites.destroyAllSpritesOfKind(SpriteKind.Yellow)
         sprites.destroyAllSpritesOfKind(SpriteKind.Green)
+        sprites.destroyAllSpritesOfKind(SpriteKind.Cyan)
         sprites.destroyAllSpritesOfKind(SpriteKind.Boss)
         sprites.destroyAllSpritesOfKind(SpriteKind.Projectile)
         sprites.destroyAllSpritesOfKind(SpriteKind.EnemyProjectile)
@@ -6831,7 +6832,7 @@ function createStartMenu () {
     myMenu.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Background, 15)
     myMenu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 12)
     myMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 11)
-    textSprite = textsprite.create("Ver. 0.5.9.9")
+    textSprite = textsprite.create("Ver. 0.6")
     textSprite.setPosition(124, 10)
     myMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
         music.stopAllSounds()
