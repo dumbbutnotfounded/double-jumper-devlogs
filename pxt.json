@@ -1,5 +1,5 @@
 {
-    "name": "Double-Jumper 0.6.3",
+    "name": "Double-Jumper 0.6.3b",
     "version": "0.6.3",
     "description": "",
     "dependencies": {
@@ -34,7 +34,7 @@
         "branch": "v1.8.30",
         "tag": "v1.8.30",
         "commits": "https://github.com/microsoft/pxt-arcade/commits/825ea9e52c6d33c12777ef204c0406661995353f",
-        "target": "1.12.17",
+        "target": "1.12.21",
         "pxt": "7.4.31",
         "targetId": "arcade"
     },
