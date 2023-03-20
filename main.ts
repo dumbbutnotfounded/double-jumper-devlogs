@@ -143,86 +143,6 @@ function ninjiAnims () {
     75,
     characterAnimations.rule(Predicate.FacingRight, Predicate.MovingUp)
     )
-    characterAnimations.loopFrames(
-    ninjiSprite,
-    [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . f f f . . . . . . 
-        . . . . . . f b b c f f 2 f . . 
-        . . . . . f 2 2 2 2 c f 2 f . . 
-        . . . . . f f 1 f 1 2 f f . . . 
-        . . . . . f b b b c c f . . . . 
-        . . . . . . f b c c f . . . . . 
-        . . . . 3 f f f f f c d d . . . 
-        . . . . f f f b b c c d d . . . 
-        . . . f e e f f f f f . . . . . 
-        . . . . . . . . f 4 f . . . . . 
-        . . . . . . . . f 4 f . . . . . 
-        . . . . . . . . . f . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . f f f . . . . . . 
-        . . . . . . f b b c f . f 2 . . 
-        . . . . . f 2 2 2 2 c f 2 f . . 
-        . . . . . f f 1 f 1 2 f f . . . 
-        . . . . . f b b b c c f . . . . 
-        . . . . . . f b c c f . . . . . 
-        . . . . 3 f f f f f c d d . . . 
-        . . . . f f f b b c c d d . . . 
-        . . . f e e f f f f f . . . . . 
-        . . . . . . . . f 4 f . . . . . 
-        . . . . . . . . f 4 f . . . . . 
-        . . . . . . . . . f . . . . . . 
-        `],
-    75,
-    characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingDown)
-    )
-    characterAnimations.loopFrames(
-    ninjiSprite,
-    [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . f f f . . . . . . . 
-        . . f 2 f f c b b f . . . . . . 
-        . . f 2 f c 2 2 2 2 f . . . . . 
-        . . . f f 2 1 f 1 f f . . . . . 
-        . . . . f c c b b b f . . . . . 
-        . . . . . f c c b f . . . . . . 
-        . . . d d c f f f f f 3 . . . . 
-        . . . d d c c b b f f f . . . . 
-        . . . . . f f f f f e e f . . . 
-        . . . . . f 4 f . . . . . . . . 
-        . . . . . f 4 f . . . . . . . . 
-        . . . . . . f . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . f f f . . . . . . . 
-        . . 2 f . f c b b f . . . . . . 
-        . . f 2 f c 2 2 2 2 f . . . . . 
-        . . . f f 2 1 f 1 f f . . . . . 
-        . . . . f c c b b b f . . . . . 
-        . . . . . f c c b f . . . . . . 
-        . . . d d c f f f f f 3 . . . . 
-        . . . d d c c b b f f f . . . . 
-        . . . . . f f f f f e e f . . . 
-        . . . . . f 4 f . . . . . . . . 
-        . . . . . f 4 f . . . . . . . . 
-        . . . . . . f . . . . . . . . . 
-        `],
-    75,
-    characterAnimations.rule(Predicate.FacingRight, Predicate.MovingDown)
-    )
 }
 sprites.onOverlap(SpriteKind.Hitbox, SpriteKind.BossProjectile, function (sprite, otherSprite) {
     gameOver()
@@ -257,16 +177,34 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . f d f . . 
             . . . . f f . . 
             `,img`
+            . f f . . . . . 
+            . f d f . f f f 
+            . f b b f b d f 
+            . . f f c b f . 
+            . f b c f f . . 
+            f d b f b b f . 
+            f f f . f d f . 
+            . . . . . f f . 
+            `,img`
             . . . . . f f . 
             f f f . f d f . 
             f d b f b b f . 
-            . f b f c f . . 
-            . . f c f b f . 
+            . f b c f f . . 
+            . . f f c b f . 
             . f b b f b d f 
             . f d f . f f f 
             . f f . . . . . 
+            `,img`
+            . . . . f f . . 
+            . . . f d f . . 
+            . f f b b f . . 
+            f d b f c f f f 
+            f f b c f b d f 
+            . . f b b f f . 
+            . . f d f . . . 
+            . . f f . . . . 
             `],
-        100,
+        75,
         true
         )
         if (characterAnimations.matchesRule(ninjiSprite, characterAnimations.rule(Predicate.FacingLeft))) {
@@ -566,6 +504,23 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         doubleJumpFx.destroy()
                     })
                 }
+            }
+            if (ninjiHitbox.isHittingTile(CollisionDirection.Left)) {
+                movement = false
+                ninjiHitbox.vx = 80
+                ninjiHitbox.vy = -180
+                timer.after(100, function () {
+                    movement = true
+                    ninjiHitbox.vx = 0
+                })
+            } else if (ninjiHitbox.isHittingTile(CollisionDirection.Right)) {
+                movement = false
+                ninjiHitbox.vx = -80
+                ninjiHitbox.vy = -180
+                timer.after(100, function () {
+                    movement = true
+                    ninjiHitbox.vx = 0
+                })
             }
         }
     }
@@ -4531,16 +4486,16 @@ function loadLevel () {
                 false
                 )
             }
-        })
-        timer.after(750, function () {
-            if (!(dialoguePlayed)) {
-                startDialogue()
-            }
-            info.startCountdown(3)
-            timer.after(3000, function () {
-                shino.vx = -80
-                shino.setFlag(SpriteFlag.GhostThroughSprites, false)
-                characterAnimations.setCharacterAnimationsEnabled(shino, true)
+            timer.after(750, function () {
+                if (!(dialoguePlayed)) {
+                    startDialogue()
+                }
+                info.startCountdown(3)
+                timer.after(3000, function () {
+                    shino.vx = -80
+                    shino.setFlag(SpriteFlag.GhostThroughSprites, false)
+                    characterAnimations.setCharacterAnimationsEnabled(shino, true)
+                })
             })
         })
     } else if (level == 5) {
@@ -5299,415 +5254,834 @@ function loadLevel () {
         ninjiSprite.vx = 0
     }
     for (let value2 of tiles.getTilesByType(assets.tile`myTile7`)) {
-        redEnemy = sprites.create(img`
-            . . . . . . . . . . . . 
-            . . . . . f f f . . . . 
-            . . . . f 4 4 2 f . . . 
-            . . . f e e e e 2 f . . 
-            . . . f f 1 f 1 e f f . 
-            . . . f 4 4 4 2 2 f e f 
-            . . . . f 4 2 2 f f e f 
-            . . . . f f f f 2 f f . 
-            . . . 3 f 4 4 2 d d f . 
-            . . . 3 f f f f d d . . 
-            . . f f f f f f f f . . 
-            . f e e f . . f 4 4 f . 
-            `, SpriteKind.Red)
-        tiles.placeOnTile(redEnemy, value2)
+        if (easyModeEnabled) {
+            if (Math.percentChance(50)) {
+                redEnemy = sprites.create(img`
+                    . . . . . . . . . . . . 
+                    . . . . . f f f . . . . 
+                    . . . . f 4 4 2 f . . . 
+                    . . . f e e e e 2 f . . 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 4 4 4 2 2 f e f 
+                    . . . . f 4 2 2 f f e f 
+                    . . . . f f f f 2 f f . 
+                    . . . 3 f 4 4 2 d d f . 
+                    . . . 3 f f f f d d . . 
+                    . . f f f f f f f f . . 
+                    . f e e f . . f 4 4 f . 
+                    `, SpriteKind.Red)
+                tiles.placeOnTile(redEnemy, value2)
+                characterAnimations.loopFrames(
+                redEnemy,
+                [img`
+                    . . . . . . . . . . . . 
+                    . . . . . f f f . . . . 
+                    . . . . f 4 4 2 f . . . 
+                    . . . f e e e e 2 f . . 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 4 4 4 2 2 f e f 
+                    . . . . f 4 2 2 f f e f 
+                    . . . . f f f f 2 f f . 
+                    . . . 3 f 4 4 2 d d f . 
+                    . . . 3 f f f f d d . . 
+                    . . f f f f f f f f . . 
+                    . f e e f . . f 4 4 f . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.HittingWallDown)
+                )
+                characterAnimations.loopFrames(
+                redEnemy,
+                [img`
+                    . . . . . f f f . . . . 
+                    . . . . f 4 4 2 f . . . 
+                    . . . f e e e e 2 f f . 
+                    . . . f f 1 f 1 e f e f 
+                    . . . f 4 4 4 2 2 f e f 
+                    . . 3 3 f 4 2 2 f d d . 
+                    . . 3 f f f f f 2 d d . 
+                    . . f f f 4 4 2 2 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `,img`
+                    . . . . . f f f . . . . 
+                    . . . . f 4 4 2 f . . . 
+                    . . . f e e e e 2 f . . 
+                    . . . f f 1 f 1 e f e f 
+                    . . . f 4 4 4 2 2 f f e 
+                    . . 3 3 f 4 2 2 f d d . 
+                    . . 3 f f f f f 2 d d . 
+                    . . f f f 4 4 2 2 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.MovingUp)
+                )
+                characterAnimations.loopFrames(
+                redEnemy,
+                [img`
+                    . . . . . f f f . . . . 
+                    . . . . f 4 4 2 f f e f 
+                    . . . f e e e e 2 f e f 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 4 4 4 2 2 f . . 
+                    . . 3 3 f 4 2 2 f d d . 
+                    . . 3 f f f f f 2 d d . 
+                    . . f f f 4 4 2 2 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `,img`
+                    . . . . . f f f . . . . 
+                    . . . . f 4 4 2 f . f e 
+                    . . . f e e e e 2 f e f 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 4 4 4 2 2 f . . 
+                    . . 3 3 f 4 2 2 f d d . 
+                    . . 3 f f f f f 2 d d . 
+                    . . f f f 4 4 2 2 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.MovingDown)
+                )
+            }
+        } else {
+            redEnemy = sprites.create(img`
+                . . . . . . . . . . . . 
+                . . . . . f f f . . . . 
+                . . . . f 4 4 2 f . . . 
+                . . . f e e e e 2 f . . 
+                . . . f f 1 f 1 e f f . 
+                . . . f 4 4 4 2 2 f e f 
+                . . . . f 4 2 2 f f e f 
+                . . . . f f f f 2 f f . 
+                . . . 3 f 4 4 2 d d f . 
+                . . . 3 f f f f d d . . 
+                . . f f f f f f f f . . 
+                . f e e f . . f 4 4 f . 
+                `, SpriteKind.Red)
+            tiles.placeOnTile(redEnemy, value2)
+            characterAnimations.loopFrames(
+            redEnemy,
+            [img`
+                . . . . . . . . . . . . 
+                . . . . . f f f . . . . 
+                . . . . f 4 4 2 f . . . 
+                . . . f e e e e 2 f . . 
+                . . . f f 1 f 1 e f f . 
+                . . . f 4 4 4 2 2 f e f 
+                . . . . f 4 2 2 f f e f 
+                . . . . f f f f 2 f f . 
+                . . . 3 f 4 4 2 d d f . 
+                . . . 3 f f f f d d . . 
+                . . f f f f f f f f . . 
+                . f e e f . . f 4 4 f . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.HittingWallDown)
+            )
+            characterAnimations.loopFrames(
+            redEnemy,
+            [img`
+                . . . . . f f f . . . . 
+                . . . . f 4 4 2 f . . . 
+                . . . f e e e e 2 f f . 
+                . . . f f 1 f 1 e f e f 
+                . . . f 4 4 4 2 2 f e f 
+                . . 3 3 f 4 2 2 f d d . 
+                . . 3 f f f f f 2 d d . 
+                . . f f f 4 4 2 2 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `,img`
+                . . . . . f f f . . . . 
+                . . . . f 4 4 2 f . . . 
+                . . . f e e e e 2 f . . 
+                . . . f f 1 f 1 e f e f 
+                . . . f 4 4 4 2 2 f f e 
+                . . 3 3 f 4 2 2 f d d . 
+                . . 3 f f f f f 2 d d . 
+                . . f f f 4 4 2 2 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.MovingUp)
+            )
+            characterAnimations.loopFrames(
+            redEnemy,
+            [img`
+                . . . . . f f f . . . . 
+                . . . . f 4 4 2 f f e f 
+                . . . f e e e e 2 f e f 
+                . . . f f 1 f 1 e f f . 
+                . . . f 4 4 4 2 2 f . . 
+                . . 3 3 f 4 2 2 f d d . 
+                . . 3 f f f f f 2 d d . 
+                . . f f f 4 4 2 2 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `,img`
+                . . . . . f f f . . . . 
+                . . . . f 4 4 2 f . f e 
+                . . . f e e e e 2 f e f 
+                . . . f f 1 f 1 e f f . 
+                . . . f 4 4 4 2 2 f . . 
+                . . 3 3 f 4 2 2 f d d . 
+                . . 3 f f f f f 2 d d . 
+                . . f f f 4 4 2 2 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.MovingDown)
+            )
+        }
         tiles.setTileAt(value2, assets.tile`transparency8`)
-        characterAnimations.loopFrames(
-        redEnemy,
-        [img`
-            . . . . . . . . . . . . 
-            . . . . . f f f . . . . 
-            . . . . f 4 4 2 f . . . 
-            . . . f e e e e 2 f . . 
-            . . . f f 1 f 1 e f f . 
-            . . . f 4 4 4 2 2 f e f 
-            . . . . f 4 2 2 f f e f 
-            . . . . f f f f 2 f f . 
-            . . . 3 f 4 4 2 d d f . 
-            . . . 3 f f f f d d . . 
-            . . f f f f f f f f . . 
-            . f e e f . . f 4 4 f . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.HittingWallDown)
-        )
-        characterAnimations.loopFrames(
-        redEnemy,
-        [img`
-            . . . . . f f f . . . . 
-            . . . . f 4 4 2 f . . . 
-            . . . f e e e e 2 f f . 
-            . . . f f 1 f 1 e f e f 
-            . . . f 4 4 4 2 2 f e f 
-            . . 3 3 f 4 2 2 f d d . 
-            . . 3 f f f f f 2 d d . 
-            . . f f f 4 4 2 2 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `,img`
-            . . . . . f f f . . . . 
-            . . . . f 4 4 2 f . . . 
-            . . . f e e e e 2 f . . 
-            . . . f f 1 f 1 e f e f 
-            . . . f 4 4 4 2 2 f f e 
-            . . 3 3 f 4 2 2 f d d . 
-            . . 3 f f f f f 2 d d . 
-            . . f f f 4 4 2 2 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.MovingUp)
-        )
-        characterAnimations.loopFrames(
-        redEnemy,
-        [img`
-            . . . . . f f f . . . . 
-            . . . . f 4 4 2 f f e f 
-            . . . f e e e e 2 f e f 
-            . . . f f 1 f 1 e f f . 
-            . . . f 4 4 4 2 2 f . . 
-            . . 3 3 f 4 2 2 f d d . 
-            . . 3 f f f f f 2 d d . 
-            . . f f f 4 4 2 2 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `,img`
-            . . . . . f f f . . . . 
-            . . . . f 4 4 2 f . f e 
-            . . . f e e e e 2 f e f 
-            . . . f f 1 f 1 e f f . 
-            . . . f 4 4 4 2 2 f . . 
-            . . 3 3 f 4 2 2 f d d . 
-            . . 3 f f f f f 2 d d . 
-            . . f f f 4 4 2 2 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.MovingDown)
-        )
     }
     for (let value3 of tiles.getTilesByType(assets.tile`myTile8`)) {
-        yellowEnemy = sprites.create(img`
-            . . . . . . . . . . . . 
-            . . . . . f f f . . . . 
-            . . . . f 5 5 4 f . . . 
-            . . . f e e e e 4 f . . 
-            . . . f f 1 f 1 e f f . 
-            . . . f 5 5 5 4 4 f e f 
-            . . . . f 5 4 4 f f e f 
-            . . . . f f f f 4 f f . 
-            . . . 3 f 5 5 4 d d f . 
-            . . . 3 f f f f d d . . 
-            . . f f f f f f f f . . 
-            . f e e f . . f 4 4 f . 
-            `, SpriteKind.Yellow)
-        tiles.placeOnTile(yellowEnemy, value3)
+        if (easyModeEnabled) {
+            if (Math.percentChance(50)) {
+                yellowEnemy = sprites.create(img`
+                    . . . . . . . . . . . . 
+                    . . . . . f f f . . . . 
+                    . . . . f 5 5 4 f . . . 
+                    . . . f e e e e 4 f . . 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 5 5 5 4 4 f e f 
+                    . . . . f 5 4 4 f f e f 
+                    . . . . f f f f 4 f f . 
+                    . . . 3 f 5 5 4 d d f . 
+                    . . . 3 f f f f d d . . 
+                    . . f f f f f f f f . . 
+                    . f e e f . . f 4 4 f . 
+                    `, SpriteKind.Yellow)
+                tiles.placeOnTile(yellowEnemy, value3)
+            }
+        } else {
+            yellowEnemy = sprites.create(img`
+                . . . . . . . . . . . . 
+                . . . . . f f f . . . . 
+                . . . . f 5 5 4 f . . . 
+                . . . f e e e e 4 f . . 
+                . . . f f 1 f 1 e f f . 
+                . . . f 5 5 5 4 4 f e f 
+                . . . . f 5 4 4 f f e f 
+                . . . . f f f f 4 f f . 
+                . . . 3 f 5 5 4 d d f . 
+                . . . 3 f f f f d d . . 
+                . . f f f f f f f f . . 
+                . f e e f . . f 4 4 f . 
+                `, SpriteKind.Yellow)
+            tiles.placeOnTile(yellowEnemy, value3)
+        }
         tiles.setTileAt(value3, assets.tile`transparency8`)
     }
     for (let value4 of tiles.getTilesByType(assets.tile`myTile12`)) {
-        diBlaster = sprites.create(img`
-            . . . . . . . . . . . . 
-            . . . . . . . . . . . . 
-            . . . f f f f f f . . . 
-            . f f 6 6 7 7 6 6 f f . 
-            f c f c f c c f c f c f 
-            . f f f f 6 6 f f f f . 
-            . . . . f f f f . . . . 
-            . . . . f 6 7 f . . . . 
-            . . . . f 6 7 f . . . . 
-            . . . . f 6 7 f . . . . 
-            . . . . f 6 6 f . . . . 
-            . . . . f f f f . . . . 
-            `, SpriteKind.Green)
-        tiles.placeOnTile(diBlaster, value4)
+        if (easyModeEnabled) {
+            if (Math.percentChance(50)) {
+                diBlaster = sprites.create(img`
+                    . . . . . . . . . . . . 
+                    . . . . . . . . . . . . 
+                    . . . f f f f f f . . . 
+                    . f f 6 6 7 7 6 6 f f . 
+                    f c f c f c c f c f c f 
+                    . f f f f 6 6 f f f f . 
+                    . . . . f f f f . . . . 
+                    . . . . f 6 7 f . . . . 
+                    . . . . f 6 7 f . . . . 
+                    . . . . f 6 7 f . . . . 
+                    . . . . f 6 6 f . . . . 
+                    . . . . f f f f . . . . 
+                    `, SpriteKind.Green)
+                tiles.placeOnTile(diBlaster, value4)
+            }
+        } else {
+            diBlaster = sprites.create(img`
+                . . . . . . . . . . . . 
+                . . . . . . . . . . . . 
+                . . . f f f f f f . . . 
+                . f f 6 6 7 7 6 6 f f . 
+                f c f c f c c f c f c f 
+                . f f f f 6 6 f f f f . 
+                . . . . f f f f . . . . 
+                . . . . f 6 7 f . . . . 
+                . . . . f 6 7 f . . . . 
+                . . . . f 6 7 f . . . . 
+                . . . . f 6 6 f . . . . 
+                . . . . f f f f . . . . 
+                `, SpriteKind.Green)
+            tiles.placeOnTile(diBlaster, value4)
+        }
         tiles.setTileAt(value4, assets.tile`transparency8`)
     }
     for (let value32 of tiles.getTilesByType(assets.tile`myTile20`)) {
-        cyanEnemy = sprites.create(img`
-            . . . . . . . . . . . . 
-            . . . . . f f f . . . . 
-            . . . . f 9 9 6 f . . . 
-            . . . f e e e e 6 f . . 
-            . . . f f 1 f 1 e f f . 
-            . . . f 9 9 9 6 6 f e f 
-            . . . . f 9 6 6 f f e f 
-            . . . . f f f f 6 f f . 
-            . . . 3 f 9 9 6 d d f . 
-            . . . 3 f f f f d d . . 
-            . . f f f f f f f f . . 
-            . f e e f . . f 4 4 f . 
-            `, SpriteKind.Cyan)
-        tiles.placeOnTile(cyanEnemy, value32)
+        if (easyModeEnabled) {
+            if (Math.percentChance(50)) {
+                cyanEnemy = sprites.create(img`
+                    . . . . . . . . . . . . 
+                    . . . . . f f f . . . . 
+                    . . . . f 9 9 6 f . . . 
+                    . . . f e e e e 6 f . . 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 9 9 9 6 6 f e f 
+                    . . . . f 9 6 6 f f e f 
+                    . . . . f f f f 6 f f . 
+                    . . . 3 f 9 9 6 d d f . 
+                    . . . 3 f f f f d d . . 
+                    . . f f f f f f f f . . 
+                    . f e e f . . f 4 4 f . 
+                    `, SpriteKind.Cyan)
+                tiles.placeOnTile(cyanEnemy, value32)
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . . . . . . . . . 
+                    . . . . . f f f . . . . 
+                    . . . . f 9 9 6 f . . . 
+                    . . . f e e e e 6 f . . 
+                    . . . f f 1 f 1 e f f . 
+                    . . . f 9 9 9 6 6 f e f 
+                    . . . . f 9 6 6 f f e f 
+                    . . . . f f f f 6 f f . 
+                    . . . 3 f 9 9 6 d d f . 
+                    . . . 3 f f f f d d c . 
+                    . . f f f f f f f f . . 
+                    . f e e f . . f 4 4 f . 
+                    `],
+                1,
+                characterAnimations.rule(Predicate.FacingLeft, Predicate.NotMoving, Predicate.HittingWallDown)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . . . . . . . . . 
+                    . . . . f f f . . . . . 
+                    . . . f 6 9 9 f . . . . 
+                    . . f 6 e e e e f . . . 
+                    . f f e 1 f 1 f f . . . 
+                    f e f 6 6 9 9 9 f . . . 
+                    f e f f 6 6 9 f . . . . 
+                    . f f 6 f f f f . . . . 
+                    . f d d 6 9 9 f 3 . . . 
+                    . . d d f f f f 3 . . . 
+                    . . f f f f f f f f . . 
+                    . f 4 4 f . . f e e f . 
+                    `],
+                1,
+                characterAnimations.rule(Predicate.FacingRight, Predicate.NotMoving, Predicate.HittingWallDown)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . . . . . . . . . 
+                    . . . . . . . . . . . . 
+                    . . . f f f . . . . . . 
+                    . . f 9 9 6 f . . . . . 
+                    . f e e e e 6 f f . . . 
+                    . f f 1 f 1 e f e f . . 
+                    . f 9 9 9 6 6 f f e f . 
+                    . . f 9 6 6 f f f . . . 
+                    . . . f f f 6 f 6 d d . 
+                    . . . f f f 9 6 6 d d . 
+                    . . f e e f f f 4 4 f . 
+                    . f e e . . . . f f . . 
+                    `,img`
+                    . . . . . . . . . . . . 
+                    . . . f f f . . . . . . 
+                    . . f 9 9 6 f . . . . . 
+                    . f e e e e 6 f f . . . 
+                    . f f 1 f 1 e f e e f . 
+                    . f 9 9 9 6 6 f f f . . 
+                    . . f 9 6 6 f f f . . . 
+                    . . . f f f 6 f 6 d d . 
+                    . . . f f 9 9 6 6 d d . 
+                    . . . . . f f f f . . . 
+                    . . . . f e f 4 f . . . 
+                    . . . f e f 4 4 f . . . 
+                    `,img`
+                    . . . f f f . . . . . . 
+                    . . f 9 9 6 f . f . . . 
+                    . f e e e e 6 f f e f . 
+                    . f f 1 f 1 e f e f . . 
+                    . f 9 9 9 6 6 f f . . . 
+                    . . f 9 6 6 f f f f . . 
+                    . . . f f f 6 f 6 d d . 
+                    . . . f f 9 9 6 6 d d . 
+                    . . f 4 f f f f f . . . 
+                    . . f 4 4 f f f f f . . 
+                    . . . f f . . f e e f . 
+                    . . . . . . f e e . . . 
+                    `],
+                100,
+                characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingLeft, Predicate.HittingWallDown)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . . . . . . . . . 
+                    . . . . . . . . . . . . 
+                    . . . . . . f f f . . . 
+                    . . . . . f 6 9 9 f . . 
+                    . . . f f 6 e e e e f . 
+                    . . f e f e 1 f 1 f f . 
+                    . f e f f 6 6 9 9 9 f . 
+                    . . . f f f 6 6 9 f . . 
+                    . d d 6 f 6 f f f . . . 
+                    . d d 6 6 9 f f f . . . 
+                    . f 4 4 f f f e e f . . 
+                    . . f f . . . . e e f . 
+                    `,img`
+                    . . . . . . . . . . . . 
+                    . . . . . . f f f . . . 
+                    . . . . . f 6 9 9 f . . 
+                    . . . f f 6 e e e e f . 
+                    . f e e f e 1 f 1 f f . 
+                    . . f f f 6 6 9 9 9 f . 
+                    . . . f f f 6 6 9 f . . 
+                    . d d 6 f 6 f f f . . . 
+                    . d d 6 6 9 9 f f . . . 
+                    . . . f f f f . . . . . 
+                    . . . f 4 f e f . . . . 
+                    . . . f 4 4 f e f . . . 
+                    `,img`
+                    . . . . . . f f f . . . 
+                    . . . f . f 6 9 9 f . . 
+                    . f e f f 6 e e e e f . 
+                    . . f e f e 1 f 1 f f . 
+                    . . . f f 6 6 9 9 9 f . 
+                    . . f f f f 6 6 9 f . . 
+                    . d d 6 f 6 f f f . . . 
+                    . d d 6 6 9 9 f f . . . 
+                    . . . f f f f f 4 f . . 
+                    . . f f f f f 4 4 f . . 
+                    . f e e f . . f f . . . 
+                    . . . e e f . . . . . . 
+                    `],
+                100,
+                characterAnimations.rule(Predicate.FacingRight, Predicate.MovingRight, Predicate.HittingWallDown)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . . f f f . . . . 
+                    . . . . f 9 9 6 f . . . 
+                    . . . f 2 2 2 2 6 f f . 
+                    . . . f f 1 f 1 2 f 2 f 
+                    . . . f 9 9 9 6 6 f 2 f 
+                    . . 3 3 f 9 6 6 f d d . 
+                    . . 3 f f f f f 6 d d . 
+                    . . f f f 9 9 6 6 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `,img`
+                    . . . . . f f f . . . . 
+                    . . . . f 9 9 6 f . . . 
+                    . . . f 2 2 2 2 6 f . . 
+                    . . . f f 1 f 1 2 f 2 f 
+                    . . . f 9 9 9 6 6 f f 2 
+                    . . 3 3 f 9 6 6 f d d . 
+                    . . 3 f f f f f 6 d d . 
+                    . . f f f 9 9 6 6 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingUp)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . f f f . . . . . 
+                    . . . f 6 9 9 f . . . . 
+                    . f f 6 2 2 2 2 f . . . 
+                    f 2 f 2 1 f 1 f f . . . 
+                    f 2 f 6 6 9 9 9 f . . . 
+                    . d d f 6 6 9 f 3 3 . . 
+                    . d d 6 f f f f f 3 . . 
+                    . . . 6 6 9 9 f f f . . 
+                    . . . f f f f f e e f . 
+                    . . . f 4 f . . . . . . 
+                    . . . f 4 f . . . . . . 
+                    . . . . f . . . . . . . 
+                    `,img`
+                    . . . . f f f . . . . . 
+                    . . . f 6 9 9 f . . . . 
+                    . . f 6 2 2 2 2 f . . . 
+                    f 2 f 2 1 f 1 f f . . . 
+                    2 f f 6 6 9 9 9 f . . . 
+                    . d d f 6 6 9 f 3 3 . . 
+                    . d d 6 f f f f f 3 . . 
+                    . . . 6 6 9 9 f f f . . 
+                    . . . f f f f f e e f . 
+                    . . . f 4 f . . . . . . 
+                    . . . f 4 f . . . . . . 
+                    . . . . f . . . . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingRight, Predicate.MovingUp)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . . f f f . . . . 
+                    . . . . f 9 9 6 f f 2 f 
+                    . . . f 2 2 2 2 6 f 2 f 
+                    . . . f f 1 f 1 2 f f . 
+                    . . . f 9 9 9 6 6 f . . 
+                    . . 3 3 f 9 6 6 f d d . 
+                    . . 3 f f f f f 6 d d . 
+                    . . f f f 9 9 6 6 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `,img`
+                    . . . . . f f f . . . . 
+                    . . . . f 9 9 6 f . f 2 
+                    . . . f 2 2 2 2 6 f 2 f 
+                    . . . f f 1 f 1 2 f f . 
+                    . . . f 9 9 9 6 6 f . . 
+                    . . 3 3 f 9 6 6 f d d . 
+                    . . 3 f f f f f 6 d d . 
+                    . . f f f 9 9 6 6 . . . 
+                    . f e e f f f f f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . f 4 f . . . 
+                    . . . . . . . f . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingDown)
+                )
+                characterAnimations.loopFrames(
+                cyanEnemy,
+                [img`
+                    . . . . f f f . . . . . 
+                    f 2 f f 6 9 9 f . . . . 
+                    f 2 f 6 2 2 2 2 f . . . 
+                    . f f 2 1 f 1 f f . . . 
+                    . . f 6 6 9 9 9 f . . . 
+                    . d d f 6 6 9 f 3 3 . . 
+                    . d d 6 f f f f f 3 . . 
+                    . . . 6 6 9 9 f f f . . 
+                    . . . f f f f f e e f . 
+                    . . . f 4 f . . . . . . 
+                    . . . f 4 f . . . . . . 
+                    . . . . f . . . . . . . 
+                    `,img`
+                    . . . . f f f . . . . . 
+                    2 f . f 6 9 9 f . . . . 
+                    f 2 f 6 2 2 2 2 f . . . 
+                    . f f 2 1 f 1 f f . . . 
+                    . . f 6 6 9 9 9 f . . . 
+                    . d d f 6 6 9 f 3 3 . . 
+                    . d d 6 f f f f f 3 . . 
+                    . . . 6 6 9 9 f f f . . 
+                    . . . f f f f f e e f . 
+                    . . . f 4 f . . . . . . 
+                    . . . f 4 f . . . . . . 
+                    . . . . f . . . . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingRight, Predicate.MovingDown)
+                )
+            }
+        } else {
+            cyanEnemy = sprites.create(img`
+                . . . . . . . . . . . . 
+                . . . . . f f f . . . . 
+                . . . . f 9 9 6 f . . . 
+                . . . f e e e e 6 f . . 
+                . . . f f 1 f 1 e f f . 
+                . . . f 9 9 9 6 6 f e f 
+                . . . . f 9 6 6 f f e f 
+                . . . . f f f f 6 f f . 
+                . . . 3 f 9 9 6 d d f . 
+                . . . 3 f f f f d d . . 
+                . . f f f f f f f f . . 
+                . f e e f . . f 4 4 f . 
+                `, SpriteKind.Cyan)
+            tiles.placeOnTile(cyanEnemy, value32)
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . . . . . . . . . 
+                . . . . . f f f . . . . 
+                . . . . f 9 9 6 f . . . 
+                . . . f e e e e 6 f . . 
+                . . . f f 1 f 1 e f f . 
+                . . . f 9 9 9 6 6 f e f 
+                . . . . f 9 6 6 f f e f 
+                . . . . f f f f 6 f f . 
+                . . . 3 f 9 9 6 d d f . 
+                . . . 3 f f f f d d c . 
+                . . f f f f f f f f . . 
+                . f e e f . . f 4 4 f . 
+                `],
+            1,
+            characterAnimations.rule(Predicate.FacingLeft, Predicate.NotMoving, Predicate.HittingWallDown)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . . . . . . . . . 
+                . . . . f f f . . . . . 
+                . . . f 6 9 9 f . . . . 
+                . . f 6 e e e e f . . . 
+                . f f e 1 f 1 f f . . . 
+                f e f 6 6 9 9 9 f . . . 
+                f e f f 6 6 9 f . . . . 
+                . f f 6 f f f f . . . . 
+                . f d d 6 9 9 f 3 . . . 
+                . . d d f f f f 3 . . . 
+                . . f f f f f f f f . . 
+                . f 4 4 f . . f e e f . 
+                `],
+            1,
+            characterAnimations.rule(Predicate.FacingRight, Predicate.NotMoving, Predicate.HittingWallDown)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . . . . . . . . . 
+                . . . . . . . . . . . . 
+                . . . f f f . . . . . . 
+                . . f 9 9 6 f . . . . . 
+                . f e e e e 6 f f . . . 
+                . f f 1 f 1 e f e f . . 
+                . f 9 9 9 6 6 f f e f . 
+                . . f 9 6 6 f f f . . . 
+                . . . f f f 6 f 6 d d . 
+                . . . f f f 9 6 6 d d . 
+                . . f e e f f f 4 4 f . 
+                . f e e . . . . f f . . 
+                `,img`
+                . . . . . . . . . . . . 
+                . . . f f f . . . . . . 
+                . . f 9 9 6 f . . . . . 
+                . f e e e e 6 f f . . . 
+                . f f 1 f 1 e f e e f . 
+                . f 9 9 9 6 6 f f f . . 
+                . . f 9 6 6 f f f . . . 
+                . . . f f f 6 f 6 d d . 
+                . . . f f 9 9 6 6 d d . 
+                . . . . . f f f f . . . 
+                . . . . f e f 4 f . . . 
+                . . . f e f 4 4 f . . . 
+                `,img`
+                . . . f f f . . . . . . 
+                . . f 9 9 6 f . f . . . 
+                . f e e e e 6 f f e f . 
+                . f f 1 f 1 e f e f . . 
+                . f 9 9 9 6 6 f f . . . 
+                . . f 9 6 6 f f f f . . 
+                . . . f f f 6 f 6 d d . 
+                . . . f f 9 9 6 6 d d . 
+                . . f 4 f f f f f . . . 
+                . . f 4 4 f f f f f . . 
+                . . . f f . . f e e f . 
+                . . . . . . f e e . . . 
+                `],
+            100,
+            characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingLeft, Predicate.HittingWallDown)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . . . . . . . . . 
+                . . . . . . . . . . . . 
+                . . . . . . f f f . . . 
+                . . . . . f 6 9 9 f . . 
+                . . . f f 6 e e e e f . 
+                . . f e f e 1 f 1 f f . 
+                . f e f f 6 6 9 9 9 f . 
+                . . . f f f 6 6 9 f . . 
+                . d d 6 f 6 f f f . . . 
+                . d d 6 6 9 f f f . . . 
+                . f 4 4 f f f e e f . . 
+                . . f f . . . . e e f . 
+                `,img`
+                . . . . . . . . . . . . 
+                . . . . . . f f f . . . 
+                . . . . . f 6 9 9 f . . 
+                . . . f f 6 e e e e f . 
+                . f e e f e 1 f 1 f f . 
+                . . f f f 6 6 9 9 9 f . 
+                . . . f f f 6 6 9 f . . 
+                . d d 6 f 6 f f f . . . 
+                . d d 6 6 9 9 f f . . . 
+                . . . f f f f . . . . . 
+                . . . f 4 f e f . . . . 
+                . . . f 4 4 f e f . . . 
+                `,img`
+                . . . . . . f f f . . . 
+                . . . f . f 6 9 9 f . . 
+                . f e f f 6 e e e e f . 
+                . . f e f e 1 f 1 f f . 
+                . . . f f 6 6 9 9 9 f . 
+                . . f f f f 6 6 9 f . . 
+                . d d 6 f 6 f f f . . . 
+                . d d 6 6 9 9 f f . . . 
+                . . . f f f f f 4 f . . 
+                . . f f f f f 4 4 f . . 
+                . f e e f . . f f . . . 
+                . . . e e f . . . . . . 
+                `],
+            100,
+            characterAnimations.rule(Predicate.FacingRight, Predicate.MovingRight, Predicate.HittingWallDown)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . . f f f . . . . 
+                . . . . f 9 9 6 f . . . 
+                . . . f 2 2 2 2 6 f f . 
+                . . . f f 1 f 1 2 f 2 f 
+                . . . f 9 9 9 6 6 f 2 f 
+                . . 3 3 f 9 6 6 f d d . 
+                . . 3 f f f f f 6 d d . 
+                . . f f f 9 9 6 6 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `,img`
+                . . . . . f f f . . . . 
+                . . . . f 9 9 6 f . . . 
+                . . . f 2 2 2 2 6 f . . 
+                . . . f f 1 f 1 2 f 2 f 
+                . . . f 9 9 9 6 6 f f 2 
+                . . 3 3 f 9 6 6 f d d . 
+                . . 3 f f f f f 6 d d . 
+                . . f f f 9 9 6 6 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingUp)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . f f f . . . . . 
+                . . . f 6 9 9 f . . . . 
+                . f f 6 2 2 2 2 f . . . 
+                f 2 f 2 1 f 1 f f . . . 
+                f 2 f 6 6 9 9 9 f . . . 
+                . d d f 6 6 9 f 3 3 . . 
+                . d d 6 f f f f f 3 . . 
+                . . . 6 6 9 9 f f f . . 
+                . . . f f f f f e e f . 
+                . . . f 4 f . . . . . . 
+                . . . f 4 f . . . . . . 
+                . . . . f . . . . . . . 
+                `,img`
+                . . . . f f f . . . . . 
+                . . . f 6 9 9 f . . . . 
+                . . f 6 2 2 2 2 f . . . 
+                f 2 f 2 1 f 1 f f . . . 
+                2 f f 6 6 9 9 9 f . . . 
+                . d d f 6 6 9 f 3 3 . . 
+                . d d 6 f f f f f 3 . . 
+                . . . 6 6 9 9 f f f . . 
+                . . . f f f f f e e f . 
+                . . . f 4 f . . . . . . 
+                . . . f 4 f . . . . . . 
+                . . . . f . . . . . . . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.FacingRight, Predicate.MovingUp)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . . f f f . . . . 
+                . . . . f 9 9 6 f f 2 f 
+                . . . f 2 2 2 2 6 f 2 f 
+                . . . f f 1 f 1 2 f f . 
+                . . . f 9 9 9 6 6 f . . 
+                . . 3 3 f 9 6 6 f d d . 
+                . . 3 f f f f f 6 d d . 
+                . . f f f 9 9 6 6 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `,img`
+                . . . . . f f f . . . . 
+                . . . . f 9 9 6 f . f 2 
+                . . . f 2 2 2 2 6 f 2 f 
+                . . . f f 1 f 1 2 f f . 
+                . . . f 9 9 9 6 6 f . . 
+                . . 3 3 f 9 6 6 f d d . 
+                . . 3 f f f f f 6 d d . 
+                . . f f f 9 9 6 6 . . . 
+                . f e e f f f f f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . f 4 f . . . 
+                . . . . . . . f . . . . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingDown)
+            )
+            characterAnimations.loopFrames(
+            cyanEnemy,
+            [img`
+                . . . . f f f . . . . . 
+                f 2 f f 6 9 9 f . . . . 
+                f 2 f 6 2 2 2 2 f . . . 
+                . f f 2 1 f 1 f f . . . 
+                . . f 6 6 9 9 9 f . . . 
+                . d d f 6 6 9 f 3 3 . . 
+                . d d 6 f f f f f 3 . . 
+                . . . 6 6 9 9 f f f . . 
+                . . . f f f f f e e f . 
+                . . . f 4 f . . . . . . 
+                . . . f 4 f . . . . . . 
+                . . . . f . . . . . . . 
+                `,img`
+                . . . . f f f . . . . . 
+                2 f . f 6 9 9 f . . . . 
+                f 2 f 6 2 2 2 2 f . . . 
+                . f f 2 1 f 1 f f . . . 
+                . . f 6 6 9 9 9 f . . . 
+                . d d f 6 6 9 f 3 3 . . 
+                . d d 6 f f f f f 3 . . 
+                . . . 6 6 9 9 f f f . . 
+                . . . f f f f f e e f . 
+                . . . f 4 f . . . . . . 
+                . . . f 4 f . . . . . . 
+                . . . . f . . . . . . . 
+                `],
+            75,
+            characterAnimations.rule(Predicate.FacingRight, Predicate.MovingDown)
+            )
+        }
         tiles.setTileAt(value32, assets.tile`transparency8`)
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . . . . . . . . . 
-            . . . . . f f f . . . . 
-            . . . . f 9 9 6 f . . . 
-            . . . f e e e e 6 f . . 
-            . . . f f 1 f 1 e f f . 
-            . . . f 9 9 9 6 6 f e f 
-            . . . . f 9 6 6 f f e f 
-            . . . . f f f f 6 f f . 
-            . . . 3 f 9 9 6 d d f . 
-            . . . 3 f f f f d d c . 
-            . . f f f f f f f f . . 
-            . f e e f . . f 4 4 f . 
-            `],
-        1,
-        characterAnimations.rule(Predicate.FacingLeft, Predicate.NotMoving, Predicate.HittingWallDown)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . . . . . . . . . 
-            . . . . f f f . . . . . 
-            . . . f 6 9 9 f . . . . 
-            . . f 6 e e e e f . . . 
-            . f f e 1 f 1 f f . . . 
-            f e f 6 6 9 9 9 f . . . 
-            f e f f 6 6 9 f . . . . 
-            . f f 6 f f f f . . . . 
-            . f d d 6 9 9 f 3 . . . 
-            . . d d f f f f 3 . . . 
-            . . f f f f f f f f . . 
-            . f 4 4 f . . f e e f . 
-            `],
-        1,
-        characterAnimations.rule(Predicate.FacingRight, Predicate.NotMoving, Predicate.HittingWallDown)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . . . . . . . . . 
-            . . . . . . . . . . . . 
-            . . . f f f . . . . . . 
-            . . f 9 9 6 f . . . . . 
-            . f e e e e 6 f f . . . 
-            . f f 1 f 1 e f e f . . 
-            . f 9 9 9 6 6 f f e f . 
-            . . f 9 6 6 f f f . . . 
-            . . . f f f 6 f 6 d d . 
-            . . . f f f 9 6 6 d d . 
-            . . f e e f f f 4 4 f . 
-            . f e e . . . . f f . . 
-            `,img`
-            . . . . . . . . . . . . 
-            . . . f f f . . . . . . 
-            . . f 9 9 6 f . . . . . 
-            . f e e e e 6 f f . . . 
-            . f f 1 f 1 e f e e f . 
-            . f 9 9 9 6 6 f f f . . 
-            . . f 9 6 6 f f f . . . 
-            . . . f f f 6 f 6 d d . 
-            . . . f f 9 9 6 6 d d . 
-            . . . . . f f f f . . . 
-            . . . . f e f 4 f . . . 
-            . . . f e f 4 4 f . . . 
-            `,img`
-            . . . f f f . . . . . . 
-            . . f 9 9 6 f . f . . . 
-            . f e e e e 6 f f e f . 
-            . f f 1 f 1 e f e f . . 
-            . f 9 9 9 6 6 f f . . . 
-            . . f 9 6 6 f f f f . . 
-            . . . f f f 6 f 6 d d . 
-            . . . f f 9 9 6 6 d d . 
-            . . f 4 f f f f f . . . 
-            . . f 4 4 f f f f f . . 
-            . . . f f . . f e e f . 
-            . . . . . . f e e . . . 
-            `],
-        100,
-        characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingLeft, Predicate.HittingWallDown)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . . . . . . . . . 
-            . . . . . . . . . . . . 
-            . . . . . . f f f . . . 
-            . . . . . f 6 9 9 f . . 
-            . . . f f 6 e e e e f . 
-            . . f e f e 1 f 1 f f . 
-            . f e f f 6 6 9 9 9 f . 
-            . . . f f f 6 6 9 f . . 
-            . d d 6 f 6 f f f . . . 
-            . d d 6 6 9 f f f . . . 
-            . f 4 4 f f f e e f . . 
-            . . f f . . . . e e f . 
-            `,img`
-            . . . . . . . . . . . . 
-            . . . . . . f f f . . . 
-            . . . . . f 6 9 9 f . . 
-            . . . f f 6 e e e e f . 
-            . f e e f e 1 f 1 f f . 
-            . . f f f 6 6 9 9 9 f . 
-            . . . f f f 6 6 9 f . . 
-            . d d 6 f 6 f f f . . . 
-            . d d 6 6 9 9 f f . . . 
-            . . . f f f f . . . . . 
-            . . . f 4 f e f . . . . 
-            . . . f 4 4 f e f . . . 
-            `,img`
-            . . . . . . f f f . . . 
-            . . . f . f 6 9 9 f . . 
-            . f e f f 6 e e e e f . 
-            . . f e f e 1 f 1 f f . 
-            . . . f f 6 6 9 9 9 f . 
-            . . f f f f 6 6 9 f . . 
-            . d d 6 f 6 f f f . . . 
-            . d d 6 6 9 9 f f . . . 
-            . . . f f f f f 4 f . . 
-            . . f f f f f 4 4 f . . 
-            . f e e f . . f f . . . 
-            . . . e e f . . . . . . 
-            `],
-        100,
-        characterAnimations.rule(Predicate.FacingRight, Predicate.MovingRight, Predicate.HittingWallDown)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . . f f f . . . . 
-            . . . . f 9 9 6 f . . . 
-            . . . f 2 2 2 2 6 f f . 
-            . . . f f 1 f 1 2 f 2 f 
-            . . . f 9 9 9 6 6 f 2 f 
-            . . 3 3 f 9 6 6 f d d . 
-            . . 3 f f f f f 6 d d . 
-            . . f f f 9 9 6 6 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `,img`
-            . . . . . f f f . . . . 
-            . . . . f 9 9 6 f . . . 
-            . . . f 2 2 2 2 6 f . . 
-            . . . f f 1 f 1 2 f 2 f 
-            . . . f 9 9 9 6 6 f f 2 
-            . . 3 3 f 9 6 6 f d d . 
-            . . 3 f f f f f 6 d d . 
-            . . f f f 9 9 6 6 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingUp)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . f f f . . . . . 
-            . . . f 6 9 9 f . . . . 
-            . f f 6 2 2 2 2 f . . . 
-            f 2 f 2 1 f 1 f f . . . 
-            f 2 f 6 6 9 9 9 f . . . 
-            . d d f 6 6 9 f 3 3 . . 
-            . d d 6 f f f f f 3 . . 
-            . . . 6 6 9 9 f f f . . 
-            . . . f f f f f e e f . 
-            . . . f 4 f . . . . . . 
-            . . . f 4 f . . . . . . 
-            . . . . f . . . . . . . 
-            `,img`
-            . . . . f f f . . . . . 
-            . . . f 6 9 9 f . . . . 
-            . . f 6 2 2 2 2 f . . . 
-            f 2 f 2 1 f 1 f f . . . 
-            2 f f 6 6 9 9 9 f . . . 
-            . d d f 6 6 9 f 3 3 . . 
-            . d d 6 f f f f f 3 . . 
-            . . . 6 6 9 9 f f f . . 
-            . . . f f f f f e e f . 
-            . . . f 4 f . . . . . . 
-            . . . f 4 f . . . . . . 
-            . . . . f . . . . . . . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.FacingRight, Predicate.MovingUp)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . . f f f . . . . 
-            . . . . f 9 9 6 f f 2 f 
-            . . . f 2 2 2 2 6 f 2 f 
-            . . . f f 1 f 1 2 f f . 
-            . . . f 9 9 9 6 6 f . . 
-            . . 3 3 f 9 6 6 f d d . 
-            . . 3 f f f f f 6 d d . 
-            . . f f f 9 9 6 6 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `,img`
-            . . . . . f f f . . . . 
-            . . . . f 9 9 6 f . f 2 
-            . . . f 2 2 2 2 6 f 2 f 
-            . . . f f 1 f 1 2 f f . 
-            . . . f 9 9 9 6 6 f . . 
-            . . 3 3 f 9 6 6 f d d . 
-            . . 3 f f f f f 6 d d . 
-            . . f f f 9 9 6 6 . . . 
-            . f e e f f f f f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . f 4 f . . . 
-            . . . . . . . f . . . . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingDown)
-        )
-        characterAnimations.loopFrames(
-        cyanEnemy,
-        [img`
-            . . . . f f f . . . . . 
-            f 2 f f 6 9 9 f . . . . 
-            f 2 f 6 2 2 2 2 f . . . 
-            . f f 2 1 f 1 f f . . . 
-            . . f 6 6 9 9 9 f . . . 
-            . d d f 6 6 9 f 3 3 . . 
-            . d d 6 f f f f f 3 . . 
-            . . . 6 6 9 9 f f f . . 
-            . . . f f f f f e e f . 
-            . . . f 4 f . . . . . . 
-            . . . f 4 f . . . . . . 
-            . . . . f . . . . . . . 
-            `,img`
-            . . . . f f f . . . . . 
-            2 f . f 6 9 9 f . . . . 
-            f 2 f 6 2 2 2 2 f . . . 
-            . f f 2 1 f 1 f f . . . 
-            . . f 6 6 9 9 9 f . . . 
-            . d d f 6 6 9 f 3 3 . . 
-            . d d 6 f f f f f 3 . . 
-            . . . 6 6 9 9 f f f . . 
-            . . . f f f f f e e f . 
-            . . . f 4 f . . . . . . 
-            . . . f 4 f . . . . . . 
-            . . . . f . . . . . . . 
-            `],
-        75,
-        characterAnimations.rule(Predicate.FacingRight, Predicate.MovingDown)
-        )
     }
     for (let value42 of tiles.getTilesByType(assets.tile`myTile13`)) {
         sprites.destroyAllSpritesOfKind(SpriteKind.StatusBar)
@@ -6327,6 +6701,7 @@ function gameOver () {
             characterAnimations.setCharacterAnimationsEnabled(ninjiSprite, true)
             gameRunning = true
             movement = true
+            bossRunCount = 0
             loadLevel()
             timer.after(1000, function () {
                 gameOverCheck = false
@@ -8378,6 +8753,7 @@ function createStartMenu () {
                 if (selectedIndex == 0) {
                     info.setLife(50)
                     level = -1
+                    easyModeEnabled = true
                 } else if (selectedIndex == 1) {
                     info.setLife(30)
                     level = 0
@@ -8564,6 +8940,17 @@ loadLevel()
                 `)
             game.showLongText("", DialogLayout.Full)
             game.setDialogCursor(img`
+                . . 4 4 4 4 . . 
+                . 4 2 5 5 2 4 . 
+                4 2 2 5 5 2 2 f 
+                4 2 4 4 4 4 2 f 
+                4 2 2 4 4 2 e f 
+                f 2 2 2 e e c f 
+                . f e e c c f . 
+                . . f f f f . . 
+                `)
+            game.showLongText("There is a powerup in every normal stage(usually to the right). You have to collect the powerup and retreat to the beginning and double-jump to the farther left platform to reach the goal.", DialogLayout.Center)
+            game.setDialogCursor(img`
                 . . . 7 7 . . . 
                 . . 7 7 7 7 . . 
                 . 6 6 6 6 6 6 . 
@@ -8573,7 +8960,6 @@ loadLevel()
                 . c c c c c c . 
                 . . . c c . . . 
                 `)
-            game.showLongText("There is a powerup in every normal stage(usually to the right). You have to collect the powerup and retreat to the beginning and double-jump to the farther left platform to reach the goal.", DialogLayout.Center)
             game.showLongText("                                                                                                                The powerup looks like this-->", DialogLayout.Center)
             createStartMenu()
         } else if (selectedIndex == 3) {
@@ -8650,7 +9036,7 @@ loadLevel()
                 . . . c c c b b b b b c c . . . 
                 . . . . . c c c c c c . . . . . 
                 `),
-            miniMenu.createMenuItem("Quinton - Playtester", img`
+            miniMenu.createMenuItem("Quintin - Playtester", img`
                 . . . . . . . c c c . . . . . . 
                 . . . . c c c b b b c c . . . . 
                 . . c c c b b b b b b b c c . . 
@@ -8704,7 +9090,7 @@ loadLevel()
                 . . a a . . . . . . . . a a . . 
                 . a . . . . . . . . . . . . a . 
                 `),
-            miniMenu.createMenuItem("Aquinas High School - My School :)", img`
+            miniMenu.createMenuItem("Aquinas High School - My School", img`
                 . . . . . . . . 5 . . . . . . . 
                 . . . . . . . 5 5 5 . . . . . . 
                 . . . . . . . . 5 . . . . . . . 
@@ -8721,6 +9107,24 @@ loadLevel()
                 . . . 5 5 . . 5 5 . . . 5 . . . 
                 . . . 5 5 . . 5 5 . . . 5 . . . 
                 . . . 5 5 . . 5 5 . . . 5 . . . 
+                `),
+            miniMenu.createMenuItem("[add name here] - Composer", img`
+                . f . . f . . f . . f . f . f . 
+                . . f f . . f . f . f . f . f . 
+                . . . f . . f . f . f . f . . . 
+                . . f . . . . f . . . f f . f . 
+                . . . . . c c c c . . . . . . . 
+                . . . . c 1 1 1 d c . . . . . . 
+                . . . . c d 1 1 3 c . . . . . . 
+                . . . . c 3 d d 3 c c . . . . . 
+                . . . . c c c c c 1 1 c . . . . 
+                . . . . c d 1 1 3 d 1 d c . . . 
+                . . . c 3 d c c c 3 d 3 c c . . 
+                . . . c 3 d 1 d c c c c 1 d c . 
+                . . . c c 3 d 3 c d c d 3 c . . 
+                . . . . . c c c d 3 d c c . . . 
+                . . . . . . . . c c c . . . . . 
+                . . . . . . . . . . . . . . . . 
                 `)
             )
             myMenu2.setPosition(1, 1)
@@ -9038,7 +9442,6 @@ function createPlayer () {
     ninjiSprite.setFlag(SpriteFlag.Ghost, true)
     camera.follow(ninjiSprite, 250)
     scene.cameraFollowSprite(camera)
-    ninjiHitbox.ay = 600
     ninjiAnims()
     numJumps = 0
     maxJumps = 1
@@ -9502,6 +9905,7 @@ let cyanEnemy: Sprite = null
 let diBlaster: Sprite = null
 let yellowEnemy: Sprite = null
 let redEnemy: Sprite = null
+let easyModeEnabled = false
 let shino: Sprite = null
 let bossRunCount = 0
 let gameOverCheck = false
@@ -9528,6 +9932,17 @@ let gameRunning = false
 let ninjiSprite: Sprite = null
 timer.after(500, function () {
     animateDevText()
+})
+game.onUpdate(function () {
+    if (gameRunning) {
+        if (movement) {
+            if (ninjiHitbox.isHittingTile(CollisionDirection.Left) || ninjiHitbox.isHittingTile(CollisionDirection.Right)) {
+                ninjiHitbox.ay = 400
+            } else {
+                ninjiHitbox.ay = 600
+            }
+        }
+    }
 })
 game.onUpdate(function () {
     for (let value6 of sprites.allOfKind(SpriteKind.Hitbox)) {
@@ -10080,5 +10495,177 @@ forever(function () {
 forever(function () {
     if (showBossRunCount) {
         info.setScore(bossRunCount)
+    }
+})
+forever(function () {
+    if (gameRunning) {
+        if (movement) {
+            if (characterAnimations.matchesRule(ninjiHitbox, characterAnimations.rule(Predicate.HittingWallLeft))) {
+                characterAnimations.loopFrames(
+                ninjiSprite,
+                [img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . f . . . . . . . . . . 
+                    . . . f 2 f . . . . . . . . . . 
+                    . . . d 2 f . f f f . . . . . . 
+                    . . . d d 2 f c b b f . . . . . 
+                    . . . d d f b 2 2 2 2 f . . . . 
+                    . . . f b c 2 1 f 1 f f . . . . 
+                    . . . f b b c c b b b f . . . . 
+                    . . . . f c f c c b f . . . . . 
+                    . . . . f c c f f f 3 3 . . . . 
+                    . . . . . f c b b f 3 3 . . . . 
+                    . . . . . f b c f c . . . . . . 
+                    . . . . . 4 4 f c f . . . . . . 
+                    . . . . . 4 4 e f . . . . . . . 
+                    . . . . . 4 e f . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `,img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . f . . . . . . . . . . . . 
+                    . . 2 d f . . f f f . . . . . . 
+                    . . f d d f f c b b f . . . . . 
+                    . . . d d f b 2 2 2 2 f . . . . 
+                    . . . f b c 2 1 f 1 f f . . . . 
+                    . . . f b b c c b b b f . . . . 
+                    . . . . f c f c c b f . . . . . 
+                    . . . . f c c f f f 3 3 . . . . 
+                    . . . . . f c b b f 3 3 . . . . 
+                    . . . . . f b c f c . . . . . . 
+                    . . . . . 4 4 f c f . . . . . . 
+                    . . . . . 4 4 e f . . . . . . . 
+                    . . . . . 4 e f . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingDown)
+                )
+            } else {
+                characterAnimations.loopFrames(
+                ninjiSprite,
+                [img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . f f f . . . . . . 
+                    . . . . . . f b b c f f 2 f . . 
+                    . . . . . f 2 2 2 2 c f 2 f . . 
+                    . . . . . f f 1 f 1 2 f f . . . 
+                    . . . . . f b b b c c f . . . . 
+                    . . . . . . f b c c f . . . . . 
+                    . . . . 3 f f f f f c d d . . . 
+                    . . . . f f f b b c c d d . . . 
+                    . . . f e e f f f f f . . . . . 
+                    . . . . . . . . f 4 f . . . . . 
+                    . . . . . . . . f 4 f . . . . . 
+                    . . . . . . . . . f . . . . . . 
+                    `,img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . f f f . . . . . . 
+                    . . . . . . f b b c f . f 2 . . 
+                    . . . . . f 2 2 2 2 c f 2 f . . 
+                    . . . . . f f 1 f 1 2 f f . . . 
+                    . . . . . f b b b c c f . . . . 
+                    . . . . . . f b c c f . . . . . 
+                    . . . . 3 f f f f f c d d . . . 
+                    . . . . f f f b b c c d d . . . 
+                    . . . f e e f f f f f . . . . . 
+                    . . . . . . . . f 4 f . . . . . 
+                    . . . . . . . . f 4 f . . . . . 
+                    . . . . . . . . . f . . . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingLeft, Predicate.MovingDown)
+                )
+            }
+            if (characterAnimations.matchesRule(ninjiHitbox, characterAnimations.rule(Predicate.HittingWallRight))) {
+                characterAnimations.loopFrames(
+                ninjiSprite,
+                [img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . f . . . . . 
+                    . . . . . . . . . . f 2 f . . . 
+                    . . . . . . f f f . f 2 d . . . 
+                    . . . . . f b b c f 2 d d . . . 
+                    . . . . f 2 2 2 2 b f d d . . . 
+                    . . . . f f 1 f 1 2 c b f . . . 
+                    . . . . f b b b c c b b f . . . 
+                    . . . . . f b c c f c f . . . . 
+                    . . . . 3 3 f f f c c f . . . . 
+                    . . . . 3 3 f b b c f . . . . . 
+                    . . . . . . c f c b f . . . . . 
+                    . . . . . . f c f 4 4 . . . . . 
+                    . . . . . . . f e 4 4 . . . . . 
+                    . . . . . . . . f e 4 . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `,img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . f . . . 
+                    . . . . . . f f f . . f d 2 . . 
+                    . . . . . f b b c f f d d f . . 
+                    . . . . f 2 2 2 2 b f d d . . . 
+                    . . . . f f 1 f 1 2 c b f . . . 
+                    . . . . f b b b c c b b f . . . 
+                    . . . . . f b c c f c f . . . . 
+                    . . . . 3 3 f f f c c f . . . . 
+                    . . . . 3 3 f b b c f . . . . . 
+                    . . . . . . c f c b f . . . . . 
+                    . . . . . . f c f 4 4 . . . . . 
+                    . . . . . . . f e 4 4 . . . . . 
+                    . . . . . . . . f e 4 . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingRight, Predicate.MovingDown)
+                )
+            } else {
+                characterAnimations.loopFrames(
+                ninjiSprite,
+                [img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . f f f . . . . . . . 
+                    . . f 2 f f c b b f . . . . . . 
+                    . . f 2 f c 2 2 2 2 f . . . . . 
+                    . . . f f 2 1 f 1 f f . . . . . 
+                    . . . . f c c b b b f . . . . . 
+                    . . . . . f c c b f . . . . . . 
+                    . . . d d c f f f f f 3 . . . . 
+                    . . . d d c c b b f f f . . . . 
+                    . . . . . f f f f f e e f . . . 
+                    . . . . . f 4 f . . . . . . . . 
+                    . . . . . f 4 f . . . . . . . . 
+                    . . . . . . f . . . . . . . . . 
+                    `,img`
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . . . . . . . . . . . 
+                    . . . . . . f f f . . . . . . . 
+                    . . 2 f . f c b b f . . . . . . 
+                    . . f 2 f c 2 2 2 2 f . . . . . 
+                    . . . f f 2 1 f 1 f f . . . . . 
+                    . . . . f c c b b b f . . . . . 
+                    . . . . . f c c b f . . . . . . 
+                    . . . d d c f f f f f 3 . . . . 
+                    . . . d d c c b b f f f . . . . 
+                    . . . . . f f f f f e e f . . . 
+                    . . . . . f 4 f . . . . . . . . 
+                    . . . . . f 4 f . . . . . . . . 
+                    . . . . . . f . . . . . . . . . 
+                    `],
+                75,
+                characterAnimations.rule(Predicate.FacingRight, Predicate.MovingDown)
+                )
+            }
+        }
     }
 })
