@@ -505,22 +505,26 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                     })
                 }
             }
-            if (ninjiHitbox.isHittingTile(CollisionDirection.Left)) {
-                movement = false
-                ninjiHitbox.vx = 80
-                ninjiHitbox.vy = -180
-                timer.after(100, function () {
-                    movement = true
-                    ninjiHitbox.vx = 0
-                })
-            } else if (ninjiHitbox.isHittingTile(CollisionDirection.Right)) {
-                movement = false
-                ninjiHitbox.vx = -80
-                ninjiHitbox.vy = -180
-                timer.after(100, function () {
-                    movement = true
-                    ninjiHitbox.vx = 0
-                })
+            if (!(ninjiHitbox.isHittingTile(CollisionDirection.Bottom))) {
+                if (ninjiHitbox.isHittingTile(CollisionDirection.Left)) {
+                    numJumps = 0
+                    movement = false
+                    ninjiHitbox.vx = 100
+                    ninjiHitbox.vy = -180
+                    timer.after(100, function () {
+                        movement = true
+                        ninjiHitbox.vx = 0
+                    })
+                } else if (ninjiHitbox.isHittingTile(CollisionDirection.Right)) {
+                    numJumps = 0
+                    movement = false
+                    ninjiHitbox.vx = -100
+                    ninjiHitbox.vy = -180
+                    timer.after(100, function () {
+                        movement = true
+                        ninjiHitbox.vx = 0
+                    })
+                }
             }
         }
     }
@@ -8673,7 +8677,7 @@ function createStartMenu () {
     myMenu.setStyleProperty(miniMenu.StyleKind.DefaultAndSelected, miniMenu.StyleProperty.Background, 15)
     myMenu.setStyleProperty(miniMenu.StyleKind.Default, miniMenu.StyleProperty.Foreground, 12)
     myMenu.setStyleProperty(miniMenu.StyleKind.Selected, miniMenu.StyleProperty.Foreground, 11)
-    textSprite = textsprite.create("Ver. 0.6.3b")
+    textSprite = textsprite.create("Ver. 0.6.5")
     textSprite.setPosition(124, 10)
     myMenu.onButtonPressed(controller.A, function (selection, selectedIndex) {
         music.stopAllSounds()
@@ -9937,7 +9941,9 @@ game.onUpdate(function () {
     if (gameRunning) {
         if (movement) {
             if (ninjiHitbox.isHittingTile(CollisionDirection.Left) || ninjiHitbox.isHittingTile(CollisionDirection.Right)) {
-                ninjiHitbox.ay = 400
+                if (!(ninjiHitbox.isHittingTile(CollisionDirection.Bottom)) && ninjiHitbox.vy >= 0) {
+                    ninjiHitbox.ay = 100
+                }
             } else {
                 ninjiHitbox.ay = 600
             }
@@ -9946,9 +9952,10 @@ game.onUpdate(function () {
 })
 game.onUpdate(function () {
     for (let value6 of sprites.allOfKind(SpriteKind.Hitbox)) {
-        if (value6.y >= 148) {
+        if (value6.y >= 160) {
             if (movement) {
                 gameOver()
+                ninjiHitbox.vy = -140
             }
         }
     }
