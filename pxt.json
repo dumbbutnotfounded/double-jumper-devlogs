@@ -17,7 +17,6 @@
         "pxt-rtttl": "github:pelikhan/pxt-rtttl#v0.0.12",
         "animation": "*",
         "arcade-text": "github:microsoft/arcade-text#v1.3.0",
-        "Custom Fonts": "github:rishiporwal/custom-fonts#master",
         "Notifications": "github:unsignedarduino/notifications#de6517dcc280cafe902ef212f59d4f55a982c7ec"
     },
     "files": [
