@@ -1,5 +1,5 @@
 {
-    "name": "Double-Jumper 0.6.8",
+    "name": "Double-Jumper 0.7",
     "version": "0.6.8",
     "description": "",
     "dependencies": {
@@ -16,7 +16,9 @@
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#c8b01b9d47f85a5133c786f1c026b1f376fe4285",
         "pxt-rtttl": "github:pelikhan/pxt-rtttl#v0.0.12",
         "animation": "*",
-        "arcade-text": "github:microsoft/arcade-text#v1.3.0"
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "Custom Fonts": "github:rishiporwal/custom-fonts#master",
+        "Notifications": "github:unsignedarduino/notifications#de6517dcc280cafe902ef212f59d4f55a982c7ec"
     },
     "files": [
         "main.blocks",
@@ -35,7 +37,7 @@
         "branch": "v1.8.30",
         "tag": "v1.8.30",
         "commits": "https://github.com/microsoft/pxt-arcade/commits/825ea9e52c6d33c12777ef204c0406661995353f",
-        "target": "1.12.29",
+        "target": "1.12.46",
         "pxt": "7.4.31",
         "targetId": "arcade"
     },
